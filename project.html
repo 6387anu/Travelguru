@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <title>Tourist Itinerary Planner</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="hero" > 
+
+        
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8fA%3D%3D" alt="" height="100%" width="100%">
+        <h1 class="centered">Explore India</h1>
+        <p class="centered2">YOUR ADVENTURE STARTS HERE</p>
+      
+    </div>
+    <div class="itineraries">
+        <h2>Trending Destinations</h2>
+        <div class="card" data-destination="manali">
+            <img src="https://www.justahotels.com/wp-content/uploads/2023/07/Manali-Travel-Guide.jpg" alt="Manali" height="120px" width="80px">
+            <h3>Manali</h3>
+            <p>A beautiful hill station in Himachal Pradesh.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="goa">
+            <img src="https://www.global-gallivanting.com/wp-content/uploads/2017/10/w-hotel-view-over-vagator-beach-goa.jpg" alt="Goa" height="120px"  width="80px">
+            <h3>Goa</h3>
+            <p>Famous for its beaches and vibrant nightlife.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="jaipur">
+            <img src="https://assets.vogue.in/photos/5ce41ea8b803113d138f5cd2/16:9/w_1920,h_1080,c_limit/Jaipur-Travel-Shopping-Restaurants.jpg" alt="Jaipur" height="120px"  width="80px">
+            <h3>Jaipur</h3>
+            <p>The Pink City, known for its rich history and architecture.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="leh">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQeCA2YnVG40Sw0p0JLt-eylrn4MmQ0-5gYw&s" alt="Leh Ladakh" height="120px" width="80px">
+            <h3>Leh Ladakh</h3>
+            <p>A paradise for adventure lovers and nature enthusiasts.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="kerala">
+            <img src="https://img.onmanorama.com/content/dam/mm/en/travel/outside-kerala/images/2022/2/15/vembanad-kumarakom.jpg.transform/576x300/image.jpg" height="120px" width="80px">
+            <h3>Kerala</h3>
+            <p>Known for its backwaters and lush landscapes.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="ooty">
+            <img src="https://www.trawell.in/blog/wp-content/uploads/2024/03/ooty-main-730x410.jpg" alt="Ooty" height="120px" width="80px">
+            <h3>Ooty</h3>
+            <p>A scenic hill station in Tamil Nadu.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="varanasi">
+            <img src="https://siaphotography.in/assets/img/blog/blog-1367647725.jpg" alt="varansi"  height="120px"  width="80px">
+            <h3>Varanasi</h3>
+            <p>A spiritual city famous for its ghats along the Ganges.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+        <div class="card" data-destination="darjeeling">
+            <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/23/d78745e603cd28bcb03d90f73c4d5fed_1000x1000.jpg" alt="Darjeeling" height="110px"  width="80px">
+            <h3>Darjeeling</h3>
+            <p>Known for its tea gardens and stunning views of the Himalayas.</p>
+            <button class="details-btn">View Details</button>
+        </div>
+    </div>
+    <!-- Destination Input Form -->
+<div id="destination-section">
+    <form id="destination-form">
+        <label for="destination-input">Enter Destination:</label>
+        <input type="text" id="destination-input" placeholder="Enter address or place name" required>
+        <button type="submit">Get Route</button>
+    </form>
+</div>
+
+<!-- Route Instructions -->
+<div id="route-instructions">
+    <!-- This will display the route summary and step-by-step instructions -->   
+</div>
+ <!-- Details Container -->
+ <div class="details-container" id="destination-details">
+    <button class="close-details">&times;</button>
+    <h2 id="details-title"></h2>
+    <img id="details-image" src="" alt="Destination Image" style="width:100%; height: auto; border-radius: 10px;">
+    <p id="details-description"></p>
+</div>
+<div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-icon"></div>
+  </div>
+<center>
+    <div id="map-section">
+        <div id="map"></div>
+    </div>
+</center>
+
+   <p id="rights">© All rights reserved 2024 </p>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "YsmyupWYn_WsAZLcbjalc",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="YsmyupWYn_WsAZLcbjalc"
+        domain="www.chatbase.co"
+        defer>
+        </script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

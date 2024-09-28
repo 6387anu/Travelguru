@@ -1,0 +1,259 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0e0e0; /* Solid light background for the entire page */
+    color: #333;
+    scroll-behavior: smooth;
+    cursor: none; /* Hides the default cursor */
+  }
+  .centered {
+    font-size: 100px;
+    position: absolute;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .centered2{
+    font-weight: 300;
+    font-size: larger;
+    
+  }
+  #rights{
+    font-size:smaller;
+  }
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .itineraries {
+    padding: 50px 0;
+    background-color: #fff;
+  }
+  
+  .itineraries h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .itineraries .card {
+    width: 20%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start below */
+    animation: fadeInUp 0.5s forwards; /* Animation on appearance */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .itineraries .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    width: 100%; /* Ensure the image fits the card */
+    border-radius: 10px; /* Add rounded corners */
+  }
+  
+  .card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .details-btn {
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .details-btn:hover {
+    background-color: #ff4757;
+  }
+  
+  /* Details Container */
+  .details-container {
+    display: none; /* Hidden by default */
+    margin: auto;
+    width: 50%;
+    position: absolute;
+
+    z-index: 1000;
+    top: 200%;
+    bottom: 50%;
+    left: 7%;
+    right: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for better visibility */
+    color: white;
+    padding: 40px;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: auto; /* Allow scrolling if content is long */
+  }
+  
+  .details-container.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .close-details {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    float: right;
+    cursor: pointer;
+  }
+  
+  /* Custom Cursor */
+  .custom-cursor {
+    width: 12px; /* Smaller size */
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9999; /* Ensures the custom cursor is on top of everything */
+    pointer-events: none; /* Prevents the cursor from interfering with clicks */
+    transform: translate(-50%, -50%);
+  }
+  /* Map Section */
+#map-section {
+  padding-top: 10px;
+    height: 500px;
+   width: 90%;
+  }
+  
+  #map {
+    border: 2px;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+  }
+  #route-instructions {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#route-instructions h3 {
+    margin-bottom: 10px;
+}
+
+#route-instructions ul {
+    list-style-type: decimal;
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Modal for itinerary details */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-details {
+    cursor: pointer;
+    float: right;
+    font-size: 28px;
+}
+
+.close-details:hover {
+    color: red;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+#destination-section{
+  border: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Spinner styling */
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-icon {
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db; /* Color for the spinner */
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Hide the spinner by default */
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
